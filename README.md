@@ -1,30 +1,44 @@
 # Outbound SIP Plugin
 
-When using the Twilio Flex dial pad to make outgoing calls, if the country code is not given at the beginning of the call, this plugin will make outgoing calls to a SIP address.
+When using the Twilio Flex dial pad to make outgoing calls, if the phone number is not in E.164 format, this plugin will make outgoing calls to a SIP address.
+
+ex.1 +819011112222  
+-> +819011112222  
+ex.2 2001  
+-> sip:2001@your-sip-domain
 
 ## Setup
 
 ```bash
-$ git clone https://mobilebiz.github.com/
-cd 
+git clone https://github.com/mobilebiz/plugin-outbound-sip.git
+cd plugin-outbound-sip
+# If you use npm 
+npm install
+# If you use yarn
+yarn install
+```
 
-# If you use npm
+## Environment Variables
+
+Copy `.env.sample` to `.env`
+Edit `.env`
+
+Key|Value
+:--|:--
+REACT_APP_SIP_DOMAIN|your sip domain(ex. xxxx.sip.twilio.com)
+
+## Local test
+
+```bash
 npm install
 ```
 
-Next, please install the [Twilio CLI](https://www.twilio.com/docs/twilio-cli/quickstart) by running:
+## Build && Deploy
 
 ```bash
-brew tap twilio/brew && brew install twilio
+npm run build && npm run deploy
 ```
 
-Finally, install the [Flex Plugin extension](https://github.com/twilio-labs/plugin-flex/tree/v1-beta) for the Twilio CLI:
+## Release
 
-```bash
-twilio plugins:install @twilio-labs/plugin-flex
-```
-
-## Development
-
-Run `twilio flex:plugins --help` to see all the commands we currently support. For further details on Flex Plugins refer to our documentation on the [Twilio Docs](https://www.twilio.com/docs/flex/developer/plugins/cli) page.
-
+Copy the link displayed during deployment.
