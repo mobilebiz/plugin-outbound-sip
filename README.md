@@ -12,7 +12,7 @@ ex.2 2001
 ```bash
 git clone https://github.com/mobilebiz/plugin-outbound-sip.git
 cd plugin-outbound-sip
-# If you use npm 
+# If you use npm
 npm install
 # If you use yarn
 yarn install
@@ -23,9 +23,9 @@ yarn install
 Copy `.env.sample` to `.env`
 Edit `.env`
 
-Key|Value
-:--|:--
-REACT_APP_SIP_DOMAIN|your sip domain(ex. xxxx.sip.twilio.com)
+| Key                  | Value                                    |
+| :------------------- | :--------------------------------------- |
+| REACT_APP_SIP_DOMAIN | your sip domain(ex. xxxx.sip.twilio.com) |
 
 ## Local test
 
@@ -41,4 +41,10 @@ npm run build && npm run deploy
 
 ## Release
 
-Copy the link displayed during deployment.
+Once deployed, you can manually release your plugin via the Flex UI or via
+
+```bash
+twilio flex:plugins:release --plugin plugin-name@version --name "name" --description "description"
+```
+
+Note: Common packages like `React`, `ReactDOM`, `Redux` and `ReactRedux` are not bundled with the build because they are treated as external dependencies so the plugin will depend on Flex to provide them globally.
